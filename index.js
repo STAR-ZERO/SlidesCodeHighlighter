@@ -26,7 +26,7 @@ let config = {
   code: localStorage.highlighterCode || '',
   theme: localStorage.highlighterTheme || 'light',
   lang: localStorage.highlighterLang || '--',
-  font: localStorage.highlighterFont || 'Roboto Mono',
+  font: localStorage.highlighterFont || 'Cica-Bold',
   tabSize: Number(localStorage.highlighterTabSize || '4'),
   typeSize: Number(localStorage.highlighterTypeSize || '40'),
   selectionTreatment: localStorage.highlighterSelectionTreatment || '--',
