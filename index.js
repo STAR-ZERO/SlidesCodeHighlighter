@@ -29,6 +29,7 @@ let config = {
   font: localStorage.highlighterFont || 'Cica-Bold',
   tabSize: Number(localStorage.highlighterTabSize || '4'),
   typeSize: Number(localStorage.highlighterTypeSize || '40'),
+  lineHeight: Number(localStorage.highlighterLineHeight || '1.2'),
   selectionTreatment: localStorage.highlighterSelectionTreatment || '--',
   customTheme: JSON.parse(localStorage.customTheme || JSON.stringify(DEFAULT_THEMES['light'])),
 };
@@ -154,6 +155,23 @@ function setupToolbar() {
         }
       })
       .on('blur', ev => setTypeSize_(config.typeSize));
+  
+  let $lineHeight = $('#line-height')
+  let setLineHeight_ = height => {
+    config.lineHeight = height;
+    localStorage.highlighterLineHeight = String(config.lineHeight);
+    updateOutputArea();
+  };
+
+  $lineHeight
+      .val(config.lineHeight)
+      .on('input', () => {
+        let val = parseFloat($lineHeight.val());
+        if (!isNaN(val) && val > 0) {
+          setLineHeight_(val);
+        }
+      })
+      .on('blur', ev => setLineHeight_(config.lineHeight));
 }
 
 
@@ -179,10 +197,10 @@ function updateOutputArea() {
   // set theme
   if (config.theme == 'custom') {
     $('.custom-theme-area').show();
-    setTheme(config.customTheme, config.typeSize);
+    setTheme(config.customTheme, config.typeSize, config.lineHeight);
   } else {
     $('.custom-theme-area').hide();
-    setTheme(DEFAULT_THEMES[config.theme], config.typeSize);
+    setTheme(DEFAULT_THEMES[config.theme], config.typeSize, config.lineHeight);
   }
 
   // build pre element

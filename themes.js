@@ -45,11 +45,10 @@ function sel(classes, extra = '') {
   return classes.map(cls => `.${cls} ${extra}`).join(', ');
 }
 
-export function setTheme(theme, typeSize) {
+export function setTheme(theme, typeSize, lineHeight) {
   let {bgColor, textColor, punctuationColor, stringAndValueColor,
        keywordTagColor, commentColor, typeColor, numberColor,
-       declarationColor, dimmedColor, highlightColor, lineHeight} = theme;
-  lineHeight = lineHeight || 1.5;
+       declarationColor, dimmedColor, highlightColor} = theme;
   let css = `
     #output pre {
       line-height: ${lineHeight * typeSize}px;
@@ -97,7 +96,6 @@ export const DEFAULT_THEMES = {
     declarationColor: materialColor('indigo', '500'),
     dimmedColor: materialColor('grey', '400'),
     highlightColor: materialColor('grey', '300'),
-    lineHeight: 1.5,
   },
   'light-alt': {
     bgColor: '#eee',
@@ -112,7 +110,6 @@ export const DEFAULT_THEMES = {
     declarationColor: '#e67c73',
     dimmedColor: materialColor('grey', '400'),
     highlightColor: '#ddd',
-    lineHeight: 1.5,
   },
   'dark': {
     bgColor: materialColor('grey', '900'),
@@ -126,7 +123,6 @@ export const DEFAULT_THEMES = {
     declarationColor: materialColor('yellow', '700'),
     dimmedColor: materialColor('grey', '500'),
     highlightColor: materialColor('grey', '700'),
-    lineHeight: 1.5,
   },
   'dark-alt': {
     bgColor: '#000',
@@ -140,7 +136,6 @@ export const DEFAULT_THEMES = {
     declarationColor: '#e67c73',
     dimmedColor: '#777',
     highlightColor: '#444',
-    lineHeight: 1.5,
   },
   'design-dark': {
     bgColor: '#263238',
@@ -154,7 +149,6 @@ export const DEFAULT_THEMES = {
     declarationColor: '#90a4ae',
     dimmedColor: '#5f6c73',
     highlightColor: '#586870',
-    lineHeight: 1.5,
   },
   'io17': {
     bgColor: '#263238', // #546dfe
@@ -168,7 +162,6 @@ export const DEFAULT_THEMES = {
     declarationColor: '#90a4ae',
     dimmedColor: '#5f6c73',
     highlightColor: '#586870',
-    lineHeight: 1.2,
   },
   'io19': {
     bgColor: '#202124',
@@ -182,7 +175,6 @@ export const DEFAULT_THEMES = {
     declarationColor: '#fcc934',
     dimmedColor: '#5f6c73',
     highlightColor: '#4d555b',
-    lineHeight: 1.2,
   },
   'flutter-interact-19': {
     bgColor: "#241e30",
@@ -196,6 +188,5 @@ export const DEFAULT_THEMES = {
     declarationColor: "#ff8383",
     dimmedColor: "#87858e",
     highlightColor: '#425a6c',
-    lineHeight: 1.2,
   }
 };
