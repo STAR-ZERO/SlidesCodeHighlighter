@@ -121,7 +121,7 @@ export const DEFAULT_THEMES = {
     typeColor: materialColor('purple', '200'),
     numberColor: materialColor('yellow', '700'),
     declarationColor: materialColor('yellow', '700'),
-    dimmedColor: materialColor('grey', '500'),
+    dimmedColor: materialColor('grey', '800'),
     highlightColor: materialColor('grey', '700'),
   },
   'dark-alt': {
